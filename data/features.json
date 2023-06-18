@@ -1,0 +1,47 @@
+[
+  {
+      "key": "filtersets",
+      "title": "Filtersets",
+      "link": "https://support.deselect.com/hc/en-us/articles/9595773981585-Can-I-predefine-a-set-of-Filters-to-use-recurrently-"
+  },
+  {
+      "key": "datasets",
+      "title": "Datasets",
+      "link": "https://support.deselect.com/hc/en-us/articles/6510429476625-Can-I-predefine-Data-Extension-combinations-through-DESelect-Segment-"
+  },
+  {
+      "key": "priodeduplication",
+      "title": "PrioDeduplication",
+      "link": "https://support.deselect.com/hc/en-us/articles/360007824798-How-can-I-deduplicate-the-results-of-my-selection-"
+  },
+  {
+      "key": "picklist",
+      "title": "Picklist",
+      "link": "https://support.deselect.com/hc/en-us/articles/360009578957-How-can-I-use-a-dropdown-instead-of-a-free-input-field-in-Filters-"
+  },
+  {
+      "key": "scheduleselections",
+      "title": "Schedule Selections",
+      "link": "https://support.deselect.com/hc/en-us/articles/360018754718-How-do-I-schedule-the-running-of-my-Selections-in-DESelect-Segment-"
+  },
+  {
+      "key": "waterfallselections",
+      "title": "Waterfall Selections",
+      "link": "https://support.deselect.com/hc/en-us/articles/4408116834961-What-is-Waterfall-Selection-"
+  },
+  {
+      "key": "customvalues",
+      "title": "Custom Values",
+      "link": "https://support.deselect.com/hc/en-us/articles/360007824918-How-can-I-add-a-fixed-or-dynamic-value-to-my-Target-Data-Extension-"
+  },
+  {
+      "key": "importedrelations",
+      "title": "Imported Relations",
+      "link": "https://support.deselect.com/hc/en-us/articles/9690519855121-How-can-I-import-contact-relations-from-Contact-Builder-to-automatically-create-my-Predefined-Relations-"
+  },
+  {
+      "key": "customrelations",
+      "title": "Custom Relations",
+      "link": "https://support.deselect.com/hc/en-us/articles/360020358998-Can-I-define-my-Data-Extensions-relations-through-DESelect-Segment-"
+  }
+]
