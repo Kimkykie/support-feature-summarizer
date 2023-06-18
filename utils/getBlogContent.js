@@ -1,16 +1,39 @@
 // api/run.js
-import edgeChromium from 'chrome-aws-lambda'
+const chromium = require("chrome-aws-lambda");
 
-// Importing Puppeteer core as default otherwise
-// it won't function correctly with "launch()"
-import puppeteer from 'puppeteer-core'
-
-// You may want to change this if you're developing
-// on a platform different from macOS.
-// See https://github.com/vercel/og-image for a more resilient
-// system-agnostic options for Puppeteeer.
-const LOCAL_CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 const SummarizerManager = require("node-summarizer").SummarizerManager;
+
+let _page;
+
+async function getPage() {
+  if (_page) {
+    return _page;
+  }
+
+  const options =
+    process.env.IS_PROD === "1"
+      ? {
+          args: chromium.args,
+          executablePath: await chromium.executablePath,
+          headless: true
+        }
+      : {
+          args: [],
+          executablePath:
+            process.platform === "win32"
+              ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+              : process.platform === "linux"
+              ? "/usr/bin/google-chrome"
+              : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+          headless: true
+        };
+
+  const browser = await chromium.puppeteer.launch(options);
+
+  _page = await browser.newPage();
+
+  return _page;
+}
 
 async function getBlogContent(url) {
   let browser;
@@ -18,13 +41,7 @@ async function getBlogContent(url) {
 
   try {
     // Edge executable will return an empty string locally.
-    const executablePath = await edgeChromium.executablePath || LOCAL_CHROME_EXECUTABLE
-    const browser = await puppeteer.launch({
-      executablePath,
-      args: edgeChromium.args,
-      headless: false,
-    });
-    const page = await browser.newPage();
+    const page = await getPage();
 
     await page.setExtraHTTPHeaders({
       "Accept-Language": "en-US,en;q=0.9",
